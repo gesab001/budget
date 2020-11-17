@@ -1,0 +1,54 @@
+<html>
+
+<body>
+<h1>BUDGET</h1>
+<div id="list">
+</div>
+</body>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       var listEl = document.getElementById("list");
+	   var ulEl = document.createElement("UL");
+	   ulEl.setAttribute("id", "list-container");
+	   var total = 0;
+	   var jsondata = JSON.parse(xhttp.responseText);
+	   
+	   for (var x in jsondata["items"]){
+	      var item = x;
+		  var price = jsondata["items"][item];
+		  total = total + price;
+		  var itemEl = document.createElement("LI");
+		  itemEl.innerHTML = item + ": " + price ;
+		  itemEl.setAttribute("id", item);
+		  itemEl.style.cursor = "pointer";
+		  console.log(item);
+		  itemEl.onclick = function(){
+		     console.log("tick", item); 
+			  			 };
+		  ulEl.appendChild(itemEl);
+	 
+	   }
+	   listEl.appendChild(ulEl);
+	   var totalEl = document.createElement("P");
+	   totalEl.innerHTML = total;
+	   listEl.appendChild(totalEl);
+	   
+	   liElements = document.getElementsByTagName("LI");
+	   for (var x=0; x<liElements.length; x++){
+  	      var el = liElements[x];
+		  var id = el.id;
+		  console.log("id",id);
+		  var product = document.getElementById(id);
+		  console.log("product", product.id);
+		  product.onclick = function() {console.log("tick", product.id)};
+	   }
+    }
+};
+xhttp.open("GET", "shoppinglist.json", true);
+xhttp.send();
+</script>
+</html>
