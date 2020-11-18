@@ -5,7 +5,7 @@
         "almonds": 13.0,
         "rice": 10.0,
         "pumkin seeds": 5.0,
-        "sunflower seeds": 2.5,
+        "sunflower seeds": 7.99,
         "weetbix": 5.6,
         "rolled oats": 4.2,
         "just juice 2.4l": 5.0,
@@ -48,6 +48,11 @@
         "avocado": 5.0,
         "wholemeal flour": 2.0,
         "burger patties": 4.0,
-        "kebab": 5.0
+        "kebab": 5.0,
+        "walnuts": 10.0,
+        "chickpea": 13.16,
+        "lentils": 11.97,
+        "red kidney beans": 17.97,
+        "chickpea flour": 5.0
     }
 }
